@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#FFF5F8"/>
+  
+  <!-- Confetti patterns -->
+  <g opacity="0.3">
+    <!-- Circles -->
+    <circle cx="100" cy="200" r="20" fill="#FFE4E1"/>
+    <circle cx="800" cy="300" r="15" fill="#E0FFFF"/>
+    <circle cx="300" cy="700" r="25" fill="#B4EEB4"/>
+    <circle cx="900" cy="800" r="18" fill="#E6E6FA"/>
+    <circle cx="600" cy="100" r="22" fill="#FFFACD"/>
+    
+    <!-- Squiggly lines (streamers) -->
+    <path d="M200,100 Q300,50 400,150 T600,100" 
+          stroke="#FFB6C1" 
+          fill="none" 
+          stroke-width="4"/>
+    
+    <path d="M700,400 Q800,300 900,450 T1000,400" 
+          stroke="#B0E2FF" 
+          fill="none" 
+          stroke-width="4"/>
+    
+    <!-- Stars -->
+    <path d="M150,500 l10,30 l30,-10 l-30,10 l10,30 l-10,-30 l-30,10 l30,-10 z" 
+          fill="#FFFACD"/>
+    <path d="M850,200 l10,30 l30,-10 l-30,10 l10,30 l-10,-30 l-30,10 l30,-10 z" 
+          fill="#FFB6C1"/>
+    
+    <!-- Dots -->
+    <circle cx="400" cy="300" r="5" fill="#FFB6C1"/>
+    <circle cx="420" cy="320" r="3" fill="#FFE4E1"/>
+    <circle cx="380" cy="310" r="4" fill="#FFF0F5"/>
+    
+    <circle cx="700" cy="600" r="5" fill="#B0E2FF"/>
+    <circle cx="720" cy="620" r="3" fill="#E0FFFF"/>
+    <circle cx="680" cy="610" r="4" fill="#F0FFFF"/>
+  </g>
+  
+  <!-- Repeating pattern -->
+  <pattern id="confettiPattern" 
+           x="0" y="0" 
+           width="200" height="200" 
+           patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="3" fill="#FFE4E1"/>
+    <circle cx="50" cy="50" r="2" fill="#E0FFFF"/>
+    <circle cx="80" cy="30" r="4" fill="#B4EEB4"/>
+    <circle cx="120" cy="70" r="3" fill="#E6E6FA"/>
+    <circle cx="150" cy="150" r="2" fill="#FFFACD"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#confettiPattern)" opacity="0.2"/>
+</svg> 

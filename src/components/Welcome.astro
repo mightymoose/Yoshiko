@@ -1,0 +1,243 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+---
+
+<div id="container">
+	<main>
+		<section id="hero">
+		</section>
+	</main>
+</div>
+
+<div class="header">
+	<h1>
+		<span>H</span>
+		<span>a</span>
+		<span>p</span>
+		<span>p</span>
+		<span>y</span>
+		<span>&nbsp;</span>
+		<span>B</span>
+		<span>i</span>
+		<span>r</span>
+		<span>t</span>
+		<span>h</span>
+		<span>d</span>
+		<span>a</span>
+		<span>y</span>
+		<span>&nbsp;</span>
+		<span>Y</span>
+		<span>o</span>
+		<span>s</span>
+		<span>h</span>
+		<span>i</span>
+		<span>k</span>
+		<span>o</span>
+	</h1>
+	<div class="message">
+		<p class="main-text">
+			<span class="note">♪</span> Surprise! We made you a special birthday playlist! <span class="note">♫</span>
+		</p>
+		<p class="subtext">Your favorite songs, played with love on the piano</p>
+	</div>
+	<div class="song-list">
+		<div class="song-item">
+			<span class="song-note">♪</span>
+			<span class="song-title">Memory</span>
+		</div>
+		<div class="song-item">
+			<span class="song-note">♪</span>
+			<span class="song-title">Amazing Grace</span>
+		</div>
+		<div class="song-item">
+			<span class="song-note">♪</span>
+			<span class="song-title">Unchained Melody</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	.header {
+		text-align: center;
+		padding: 2rem;
+		margin-top: 2rem;
+	}
+
+	h1 {
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 3.5rem;
+		color: #FF1493;
+		text-shadow: 3px 3px 0 #FFD700;
+		margin: 0;
+	}
+
+	h1 span {
+		display: inline-block;
+		animation: bounce 1s ease-in-out infinite;
+		animation-delay: calc(var(--i) * 0.1s);
+	}
+
+	/* Apply different delays to each letter */
+	h1 span:nth-child(1) { --i: 1; }
+	h1 span:nth-child(2) { --i: 2; }
+	h1 span:nth-child(3) { --i: 3; }
+	h1 span:nth-child(4) { --i: 4; }
+	h1 span:nth-child(5) { --i: 5; }
+	h1 span:nth-child(6) { --i: 6; }
+	h1 span:nth-child(7) { --i: 7; }
+	h1 span:nth-child(8) { --i: 8; }
+	h1 span:nth-child(9) { --i: 9; }
+	h1 span:nth-child(10) { --i: 10; }
+	h1 span:nth-child(11) { --i: 11; }
+	h1 span:nth-child(12) { --i: 12; }
+	h1 span:nth-child(13) { --i: 13; }
+	h1 span:nth-child(14) { --i: 14; }
+	h1 span:nth-child(15) { --i: 15; }
+	h1 span:nth-child(16) { --i: 16; }
+	h1 span:nth-child(17) { --i: 17; }
+	h1 span:nth-child(18) { --i: 18; }
+	h1 span:nth-child(19) { --i: 19; }
+	h1 span:nth-child(20) { --i: 20; }
+	h1 span:nth-child(21) { --i: 21; }
+	h1 span:nth-child(22) { --i: 22; }
+	h1 span:nth-child(23) { --i: 23; }
+
+	@keyframes bounce {
+		0%, 100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2rem;
+		}
+	}
+
+	.message {
+		font-family: 'Comic Sans MS', cursive;
+		margin-top: 3rem;
+		line-height: 1.5;
+	}
+
+	.main-text {
+		font-size: 2rem;
+		color: #FF1493;
+		animation: fadeIn 1s ease-in forwards;
+		opacity: 0;
+		margin: 0;
+	}
+
+	.subtext {
+		font-size: 1.5rem;
+		color: #FF69B4;
+		margin-top: 0.5rem;
+		opacity: 0;
+		animation: fadeIn 1s ease-in 0.5s forwards;
+	}
+
+	.note {
+		display: inline-block;
+		color: #FFD700;
+		font-size: 2.5rem;
+		animation: wiggle 2s ease-in-out infinite;
+		text-shadow: 2px 2px 0 #FF69B4;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes wiggle {
+		0%, 100% {
+			transform: rotate(0deg);
+		}
+		25% {
+			transform: rotate(15deg);
+		}
+		75% {
+			transform: rotate(-15deg);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.main-text {
+			font-size: 1.5rem;
+			padding: 0 1rem;
+		}
+
+		.subtext {
+			font-size: 1.2rem;
+		}
+
+		.note {
+			font-size: 2rem;
+		}
+	}
+
+	.song-list {
+		margin-top: 3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		align-items: center;
+		opacity: 0;
+		animation: simpleFadeIn 1s ease-out 1.5s forwards;
+	}
+
+	.song-item {
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 1.8rem;
+		color: #FF1493;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.song-note {
+		color: #FFD700;
+		text-shadow: 2px 2px 0 #FF69B4;
+	}
+
+	.song-title {
+		font-weight: bold;
+		color: #FF1493;
+	}
+
+	.song-from {
+		font-size: 1.4rem;
+		font-style: italic;
+		color: #FF69B4;
+		margin-left: 0.5rem;
+	}
+
+	@keyframes simpleFadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.song-item {
+			font-size: 1.4rem;
+		}
+
+		.song-from {
+			font-size: 1.1rem;
+		}
+	}
+</style>

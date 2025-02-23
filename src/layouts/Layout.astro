@@ -1,0 +1,31 @@
+---
+import Balloons from '../components/Balloons.astro';
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/cake.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Happy Birthday Yoshiko!</title>
+	</head>
+	<body>
+		<Balloons />
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/background.svg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+</style>
