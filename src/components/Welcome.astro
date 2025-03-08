@@ -26,7 +26,8 @@ import background from '../assets/background.svg';
 		<span>d</span>
 		<span>a</span>
 		<span>y</span>
-		<span>&nbsp;</span>
+		<div>
+
 		<span>Y</span>
 		<span>o</span>
 		<span>s</span>
@@ -34,28 +35,84 @@ import background from '../assets/background.svg';
 		<span>i</span>
 		<span>k</span>
 		<span>o</span>
+		</div>
 	</h1>
+	<div style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem;">
+		<img src="/carla-and-yoshiko.jpeg" alt="Carla and Yoshiko" style="max-width: 400px; height: auto;" />
+		<div class="song-list">
 	<div class="message">
 		<p class="main-text">
 			<span class="note">♪</span> Surprise! We made you a special birthday playlist! <span class="note">♫</span>
 		</p>
 		<p class="subtext">Your favorite songs, played with love on the piano</p>
 	</div>
-	<div class="song-list">
-		<div class="song-item">
-			<span class="song-note">♪</span>
-			<span class="song-title">Memory</span>
-		</div>
-		<div class="song-item">
-			<span class="song-note">♪</span>
-			<span class="song-title">Amazing Grace</span>
-		</div>
-		<div class="song-item">
-			<span class="song-note">♪</span>
-			<span class="song-title">Unchained Melody</span>
+			<div class="song-item">
+				<audio id="happy-birthday" src="/songs/happy-birthday.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">Happy Birthday</span>
+				<button class="play-button" data-audio="happy-birthday">▶</button>
+			</div>
+			<div class="song-item">
+				<audio id="memory" src="/songs/memory.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">Memory</span>
+				<button class="play-button" data-audio="memory">▶</button>
+			</div>
+			<div class="song-item">
+				<audio id="amazing-grace" src="/songs/amazing-grace.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">Amazing Grace</span>
+				<button class="play-button" data-audio="amazing-grace">▶</button>
+			</div>
+			<div class="song-item">
+				<audio id="unchained-melody" src="/songs/unchained-melody.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">Unchained Melody</span>
+				<button class="play-button" data-audio="unchained-melody">▶</button>
+			</div>
+			<div class="song-item">
+				<audio id="sweet-caroline" src="/songs/sweet-caroline.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">Sweet Caroline</span>
+				<button class="play-button" data-audio="sweet-caroline">▶</button>
+			</div>
+			<div class="song-item">
+				<audio id="how-great-thou-art" src="/songs/how-great-thou-art.wav"></audio>
+				<span class="song-note">♪</span>
+				<span class="song-title">How Great Thou Art</span>
+				<button class="play-button" data-audio="how-great-thou-art">▶</button>
+			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	let currentlyPlaying = null;
+
+	document.querySelectorAll('.play-button').forEach(button => {
+		button.addEventListener('click', () => {
+			const audioId = button.getAttribute('data-audio');
+			const audio = document.getElementById(audioId);
+			
+			if (currentlyPlaying && currentlyPlaying !== audio) {
+				currentlyPlaying.pause();
+				currentlyPlaying.currentTime = 0;
+				currentlyPlaying.parentElement.querySelector('.play-button').textContent = '▶';
+			}
+
+			if (audio.paused) {
+				audio.play();
+				button.textContent = '⏸';
+				currentlyPlaying = audio;
+			} else {
+				audio.pause();
+				audio.currentTime = 0;
+				button.textContent = '▶';
+				currentlyPlaying = null;
+			}
+		});
+	});
+</script>
 
 <style>
 	.header {
@@ -120,7 +177,6 @@ import background from '../assets/background.svg';
 
 	.message {
 		font-family: 'Comic Sans MS', cursive;
-		margin-top: 3rem;
 		line-height: 1.5;
 	}
 
@@ -187,7 +243,6 @@ import background from '../assets/background.svg';
 	}
 
 	.song-list {
-		margin-top: 3rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1.2rem;
@@ -203,6 +258,7 @@ import background from '../assets/background.svg';
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		position: relative;
 	}
 
 	.song-note {
@@ -222,6 +278,32 @@ import background from '../assets/background.svg';
 		margin-left: 0.5rem;
 	}
 
+	.play-button {
+		background: #FF1493;
+		color: white;
+		border: 2px solid #FFD700;
+		border-radius: 50%;
+		width: 2.5rem;
+		height: 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-size: 1rem;
+		padding: 0;
+		margin-left: 1rem;
+		box-shadow: 2px 2px 0 #FFD700;
+	}
+
+	.play-button:hover {
+		transform: scale(1.1);
+		background: #FFD700;
+		color: #FF1493;
+		border-color: #FF1493;
+		box-shadow: 2px 2px 0 #FF1493;
+	}
+
 	@keyframes simpleFadeIn {
 		from {
 			opacity: 0;
@@ -238,6 +320,12 @@ import background from '../assets/background.svg';
 
 		.song-from {
 			font-size: 1.1rem;
+		}
+
+		.play-button {
+			width: 2rem;
+			height: 2rem;
+			font-size: 0.8rem;
 		}
 	}
 </style>
